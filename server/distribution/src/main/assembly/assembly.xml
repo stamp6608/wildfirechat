@@ -1,0 +1,123 @@
+<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+    <id>bundle-tar</id>
+    <formats>
+        <format>tar.gz</format>
+        <!--<format>dir</format>-->
+    </formats>
+    <includeBaseDirectory>false
+    </includeBaseDirectory> <!-- disable the creation of root's distribution dir in the archive -->
+
+    <fileSets>
+        <fileSet>
+            <directory>../broker/migrate/mysql/</directory>
+            <outputDirectory>/migrate/mysql</outputDirectory>
+        </fileSet>
+
+        <fileSet>
+            <directory>../broker/migrate/h2/</directory>
+            <outputDirectory>/migrate/h2</outputDirectory>
+        </fileSet>
+
+        <fileSet>
+            <directory>../wildfire_jmeter/test_plan/</directory>
+            <outputDirectory>/tools/jmeter</outputDirectory>
+        </fileSet>
+    </fileSets>
+
+    <files>
+        <!-- executables scripts-->
+        <file>
+            <source>src/main/scripts/wildfirechat.sh</source>
+            <outputDirectory>bin</outputDirectory>
+            <fileMode>0755</fileMode>
+        </file>
+
+        <file>
+            <source>src/main/scripts/wildfirechat.bat</source>
+            <outputDirectory>bin</outputDirectory>
+        </file>
+
+        <file>
+            <source>src/main/resources/log4j.properties</source>
+            <outputDirectory>config/</outputDirectory>
+            <destName>log4j.properties</destName>
+        </file>
+
+        <file>
+            <source>src/main/resources/wildfirechat.conf</source>
+            <outputDirectory>config/</outputDirectory>
+        </file>
+
+        <file>
+            <source>src/main/resources/hazelcast.xml</source>
+            <outputDirectory>config/</outputDirectory>
+        </file>
+        <file>
+            <source>src/main/resources/c3p0-config.xml</source>
+            <outputDirectory>config/</outputDirectory>
+        </file>
+
+        <file>
+            <source>src/main/resources/README.txt</source>
+        </file>
+
+        <file>
+            <source>src/main/resources/git.properties</source>
+            <outputDirectory>config/</outputDirectory>
+        </file>
+
+        <file>
+            <source>../wildfire_jmeter/target/wildfire-xmeter-jar-with-dependencies.jar</source>
+            <outputDirectory>tools/jmeter</outputDirectory>
+        </file>
+
+        <file>
+            <source>../broker/target/moquette-broker-${project.version}.jar</source>
+            <outputDirectory>lib/</outputDirectory>
+            <destName>moquette-broker-${project.version}.jar</destName>
+        </file>
+
+        <file>
+            <source>../client/target/client-${project.version}.jar</source>
+            <outputDirectory>java_client/</outputDirectory>
+            <destName>client-${project.version}.jar</destName>
+        </file>
+
+        <file>
+            <source>../common/target/common-${project.version}.jar</source>
+            <outputDirectory>java_client/</outputDirectory>
+            <destName>common-${project.version}.jar</destName>
+        </file>
+
+        <file>
+            <source>../sdk/target/sdk-${project.version}.jar</source>
+            <outputDirectory>server_sdk/</outputDirectory>
+            <destName>sdk-${project.version}.jar</destName>
+        </file>
+
+        <file>
+            <source>../sdk/sdk_readme.txt</source>
+            <outputDirectory>server_sdk/</outputDirectory>
+            <destName>sdk_readme.txt</destName>
+        </file>
+
+        <file>
+            <source>../common/target/common-${project.version}.jar</source>
+            <outputDirectory>server_sdk/</outputDirectory>
+            <destName>common-${project.version}.jar</destName>
+        </file>
+    </files>
+
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib/</outputDirectory>
+            <useProjectArtifact>true</useProjectArtifact> <!-- avoid inclusion of the artifact itself -->
+            <excludes>
+                <exclude>io.moquette:moquette-broker</exclude>
+            </excludes>
+        </dependencySet>
+    </dependencySets>
+</assembly>

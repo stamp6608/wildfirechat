@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray5"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="150dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/app_name_in_about"
+                android:textColor="@color/gray2"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/infoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.lqr.optionitemview.OptionItemView
+            android:id="@+id/introOptionItemView"
+            style="@style/OptionItem"
+            android:background="@drawable/selector_option_item"
+            app:left_text="@string/function_introduction"
+            app:left_text_color="@color/black0"
+            app:left_text_margin_left="@dimen/option_item_margin_left"
+            app:left_text_size="16sp" />
+
+        <View
+            style="@style/Line"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+
+        <com.lqr.optionitemview.OptionItemView
+            android:id="@+id/agreementOptionItemView"
+            style="@style/OptionItem"
+            android:background="@drawable/selector_option_item"
+            app:left_text="用户协议"
+            app:left_text_color="@color/black0"
+            app:left_text_margin_left="@dimen/option_item_margin_left"
+            app:left_text_size="16sp" />
+
+        <View
+            style="@style/Line"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+
+        <com.lqr.optionitemview.OptionItemView
+            android:id="@+id/privacyOptionItemView"
+            style="@style/OptionItem"
+            android:background="@drawable/selector_option_item"
+            app:left_text="隐私政策"
+            app:left_text_color="@color/black0"
+            app:left_text_margin_left="@dimen/option_item_margin_left"
+            app:left_text_size="16sp" />
+
+
+    </LinearLayout>
+</LinearLayout>
