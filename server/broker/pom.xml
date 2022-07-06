@@ -147,7 +147,7 @@
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast</artifactId>
-            <version>3.9.4</version>
+            <version>3.11</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.xiaoleilu/hutool -->
